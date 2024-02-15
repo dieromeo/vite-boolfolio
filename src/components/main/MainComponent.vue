@@ -1,6 +1,7 @@
 <script>
 export default {
-    name: 'mainComponent'
+    name: 'mainComponent',
+    props: ['projects'],
 }
 </script>
 
