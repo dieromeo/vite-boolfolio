@@ -4,7 +4,7 @@ import ProjectCard from './ProjectCard.vue';
 export default {
     name: 'mainComponent',
     props: ['projects'],
-    components: { ProjectCard }
+    components: { ProjectCard },
 }
 </script>
 
@@ -19,3 +19,9 @@ export default {
         </div>
     </main>
 </template>
+
+<style lang="scss" scoped>
+main {
+    height: 100%;
+}
+</style>

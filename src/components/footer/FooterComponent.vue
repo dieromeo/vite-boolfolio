@@ -11,3 +11,12 @@ export default {
         </div>
     </footer>
 </template>
+
+<style lang="scss" scoped>
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+</style>
