@@ -1,7 +1,7 @@
 <script>
 export default {
     name: 'ProjectCard',
-    props: ['title', 'description'],
+    props: ['title', 'description', 'slug'],
 }
 </script>
 
@@ -10,7 +10,8 @@ export default {
         <div class="card-body">
             <h5 class="card-title">{{ title }}</h5>
             <p class="card-text">{{ description }}</p>
-            <a href="#" class="btn btn-primary">Dettaglio</a>
+            <router-link :to="{ name: 'single-project', params: { slug: slug } }"
+                class="btn btn-primary">Dettaglio</router-link>
         </div>
     </div>
 </template>
