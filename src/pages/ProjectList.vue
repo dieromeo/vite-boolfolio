@@ -6,7 +6,7 @@ export default {
     name: 'ProjectList',
     data() {
         return {
-            apiUrl: 'http://127.0.0.1:8000/api/portfolio',
+            apiUrl: 'http://127.0.0.1:8000/api/project',
             projects: [],
             currentPage: 1,
             lastPage: 0
@@ -24,7 +24,6 @@ export default {
             }).then(response => {
                 this.projects = response.data.data.data;
                 this.lastPage = response.data.data.last_page;
-                console.log(this.lastPage)
             })
         },
 
