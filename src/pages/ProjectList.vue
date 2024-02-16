@@ -24,6 +24,8 @@ export default {
             }).then(response => {
                 this.projects = response.data.data.data;
                 this.lastPage = response.data.data.last_page;
+            }).catch(error => {
+                console.log(error);
             })
         },
 
