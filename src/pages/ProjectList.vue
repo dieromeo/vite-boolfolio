@@ -1,15 +1,14 @@
 <script>
 import axios from 'axios';
 import ProjectCard from '../components/main/ProjectCard.vue';
+import store from '../store.js';
 
 export default {
     name: 'ProjectList',
     data() {
         return {
-            apiUrl: 'http://127.0.0.1:8000/api/project',
+            store,
             projects: [],
-            currentPage: 1,
-            lastPage: 0
         }
     },
     components: { ProjectCard },
@@ -17,13 +16,13 @@ export default {
 
         //metodo per chiamata axios
         getProjects() {
-            axios.get(this.apiUrl, {
+            axios.get(this.store.api.baseUrl, {
                 params: {
-                    page: this.currentPage
+                    page: this.store.api.currentPage
                 }
             }).then(response => {
                 this.projects = response.data.data.data;
-                this.lastPage = response.data.data.last_page;
+                this.store.api.lastPage = response.data.data.last_page;
             }).catch(error => {
                 console.log(error);
             })
@@ -31,16 +30,16 @@ export default {
 
         //metodo per pagina successiva
         next() {
-            if (this.currentPage < this.lastPage) {
-                this.currentPage++;
+            if (this.store.api.currentPage < this.store.api.lastPage) {
+                this.store.api.currentPage++;
             }
             this.getProjects();
         },
 
         //metodo per pagina precedente
         prev() {
-            if (this.currentPage > 1) {
-                this.currentPage--;
+            if (this.store.api.currentPage > 1) {
+                this.store.api.currentPage--;
             }
             this.getProjects();
         }
