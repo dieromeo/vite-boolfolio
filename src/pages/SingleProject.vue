@@ -13,7 +13,12 @@ export default {
     methods: {
         getProject() {
             axios.get(this.store.api.baseUrl + '/' + this.$route.params.slug).then(response => {
-                this.project = response.data.data;
+                if (response.data.data) {
+                    this.project = response.data.data;
+                    console.log(response.data.data);
+                } else {
+                    this.$router.push({ path: '/page-not-found' })
+                }
             })
         }
     },
