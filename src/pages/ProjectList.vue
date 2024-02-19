@@ -78,8 +78,10 @@ export default {
             </div>
             <div class="text-center">
                 <div class="mt-5">
-                    <a href="#" class="btn btn-dark text-light me-3 px-3 rounded-5" @click="prev()">Prev</a>
-                    <a href="#" class="btn btn-dark text-light px-3 rounded-5" @click="next()">Next</a>
+                    <a href="#" class="btn btn-dark text-light me-3 px-3 rounded-5" @click="prev()"
+                        v-if="store.api.currentPage > 1">Prev</a>
+                    <a href="#" class="btn btn-dark text-light px-3 rounded-5" @click="next()"
+                        v-if="store.api.currentPage < store.api.lastPage">Next</a>
                 </div>
             </div>
         </div>
