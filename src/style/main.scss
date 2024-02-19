@@ -1,5 +1,24 @@
 @import "bootstrap/scss/bootstrap";
 
 body {
-    position: relative
+    height: 100vh;
+
+    #app {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    main {
+        flex-grow: 1;
+    }
+
+    footer {
+        margin-top: auto;
+    }
 }

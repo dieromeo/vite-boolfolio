@@ -10,11 +10,13 @@ export default {
 </script>
 
 <template>
-    <ul class="d-flex m-0">
-        <li v-for="link in links" class="list-unstyled"><router-link :to="{ name: link.toLowerCase() }"
-                class="text-decoration-none text-white ms-3">{{ link }}</router-link>
-        </li>
-    </ul>
+    <div class="bg-light rounded-5 p-3">
+        <ul class="d-flex m-0 p-0 gap-3">
+            <li v-for="link in links" class="list-unstyled"><router-link :to="{ name: link.toLowerCase() }"
+                    class="text-decoration-none text-dark">{{ link }}</router-link>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <style lang="scss" scoped>
