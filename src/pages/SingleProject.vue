@@ -33,6 +33,8 @@ export default {
         <div class="container py-5">
             <h1>{{ project.title }}</h1>
             <p>{{ project.description }}</p>
+            <p><router-link :to="{ name: 'progetti', query: { page: store.api.currentPage, key: store.searchKey } }">Torna ai
+                    progetti</router-link></p>
         </div>
     </main>
 </template>

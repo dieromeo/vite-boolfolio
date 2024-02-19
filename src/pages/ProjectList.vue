@@ -38,6 +38,10 @@ export default {
         next() {
             if (this.store.api.currentPage < this.store.api.lastPage) {
                 this.store.api.currentPage++;
+                this.$router.push({
+                    name: 'progetti',
+                    query: { page: this.store.api.currentPage, key: this.store.searchKey }
+                })
             }
             this.getProjects();
         },
@@ -46,11 +50,17 @@ export default {
         prev() {
             if (this.store.api.currentPage > 1) {
                 this.store.api.currentPage--;
+                this.$router.push({
+                    name: 'progetti',
+                    query: { page: this.store.api.currentPage, key: this.store.searchKey }
+                })
             }
             this.getProjects();
         }
     },
     created() {
+        this.store.api.currentPage = this.$route.page ?? 1
+        this.store.searchKey = this.$route.query.key ?? null
         this.getProjects();
     }
 }

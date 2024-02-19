@@ -10,6 +10,11 @@ export default {
     },
     methods: {
         search() {
+            this.store.api.currentPage = 1;
+            this.$router.push({
+                name: 'progetti',
+                query: { page: 1, key: this.store.searchKey }
+            })
             this.$emit('searchProject');
         }
     },
@@ -22,7 +27,7 @@ export default {
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="searchProject" placeholder="cerca" v-model="store.searchKey">
             <label for="searchProject">Cerca un progetto</label>
-            <button class="btn btn-primary">Cerca</button>
+            <button class="btn btn-primary m-3">Cerca</button>
         </div>
     </form>
 </template>
